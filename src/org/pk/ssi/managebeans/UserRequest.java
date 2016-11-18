@@ -3,34 +3,16 @@ package org.pk.ssi.managebeans;
 import java.util.List;
 
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.SessionScoped;
+import javax.faces.bean.RequestScoped;
 
-@ManagedBean(name="user")
-@SessionScoped
-public class User {
-	
-	private String firstName;
-	private String lastName;
+@ManagedBean(name="userRequest")
+@RequestScoped
+public class UserRequest {
+
 	private String sex;
 
 	private String education;
 	private List<String> selectedLanguages;
-	
-	public String getFirstName() {
-		return firstName;
-	}
-	
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
-	}
-	
-	public String getLastName() {
-		return lastName;
-	}
-	
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
-	}
 	
 	public String getSex() {
 		return sex;
