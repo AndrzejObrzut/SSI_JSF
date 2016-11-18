@@ -1,46 +1,64 @@
 <!DOCTYPE html>
 <html xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core">
-<head>
-<meta charset="UTF-8"></meta>
-<title>Insert title here</title>
-</head>
+
+<h:head>
+    <meta charset="utf-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<meta http-equiv="X-UA-Conpatible" content="IE=edge" />
+	<h:outputStylesheet library="css" name="bootstrap.min.css"></h:outputStylesheet>
+	<title>ObrzutPawlus</title>
+</h:head>
 <body>
-	<h:graphicImage value="/images/wieiklogo.png"></h:graphicImage>
 
-	<h:form>
-		Name: <h:inputText value="#{user.firstName}"></h:inputText>
-		
-		<br></br>
-		
-		Surname: <h:inputText value="#{user.lastName}"></h:inputText>
-		
-		<br></br>
 
-		Sex: <h:selectOneMenu value="#{user.sex}">
-			<f:selectItem itemLabel="Female" itemValue="1"></f:selectItem>
-			<f:selectItem itemLabel="Male" itemValue="2"></f:selectItem>		
-		</h:selectOneMenu>
-		
-		<br></br>
-		
-		Languages: <h:selectManyMenu value="#{user.selectedLanguages}">
-			<f:selectItem itemValue="1" itemLabel="Polish" />
-            <f:selectItem itemValue="2" itemLabel="English" />
-            <f:selectItem itemValue="3" itemLabel="German" />
-		</h:selectManyMenu>
-		
-		<br></br>
-		
-		Education: <h:selectOneRadio value="#{user.education}">
-			<f:selectItem itemValue="1" itemLabel="Primary"></f:selectItem>
-			<f:selectItem itemValue="2" itemLabel="Secendary"></f:selectItem>
-			<f:selectItem itemValue="3" itemLabel="Higher"></f:selectItem>
-		</h:selectOneRadio>
+	<div class="container">
+		<h:graphicImage value="resources/images/wieiklogo.png"></h:graphicImage>
+	
+		<h:form styleClass="form-inline">
+			
+			<div class="form-group">
+				<h:outputLabel value="Name" styleClass="sr-only" for="usr"></h:outputLabel>
+				<h:inputText value="#{user.firstName}" styleClass="form-control"></h:inputText>
+			</div>
+			<div class="form-group">
+				<h:outputLabel value="Surname" styleClass="sr-only"></h:outputLabel>			
+				<h:inputText value="#{user.lastName}"></h:inputText>
+			</div>
+			<div class="form-group">
+				<h:outputLabel value="Sex" styleClass="sr-only"></h:outputLabel>
+			
+			</div>
+			<div class="form-group">
+				<h:outputLabel value="Name" styleClass="sr-only"></h:outputLabel>
 
-		<br></br>
-		
-		<h:commandButton value="Submit!" action="submitUser"></h:commandButton>
-	</h:form>
+				<h:selectOneMenu value="#{user.sex}">
+					<f:selectItem itemLabel="Female" itemValue="1"></f:selectItem>
+					<f:selectItem itemLabel="Male" itemValue="2"></f:selectItem>		
+				</h:selectOneMenu>			
+			</div>
+			<div class="form-group">
+				<h:outputLabel value="Languages" styleClass="sr-only"></h:outputLabel>
+
+				<h:selectManyMenu value="#{user.selectedLanguages}">
+					<f:selectItem itemValue="1" itemLabel="Polish" />
+	            	<f:selectItem itemValue="2" itemLabel="English" />
+		            <f:selectItem itemValue="3" itemLabel="German" />
+				</h:selectManyMenu>
+			</div>		
+			<div class="form-group">
+				<h:outputLabel value="Education" styleClass="sr-only"></h:outputLabel>
+				
+				<h:selectOneRadio value="#{user.education}">
+					<f:selectItem itemValue="1" itemLabel="Primary"></f:selectItem>
+					<f:selectItem itemValue="2" itemLabel="Secendary"></f:selectItem>
+					<f:selectItem itemValue="3" itemLabel="Higher"></f:selectItem>
+				</h:selectOneRadio>
+			</div>			
+
+				
+			<h:commandButton value="Submit!" action="submitUser" type="submit" styleClass="btn btn-default"></h:commandButton>
+		</h:form>
+	</div>	
 </body>
 </html>
