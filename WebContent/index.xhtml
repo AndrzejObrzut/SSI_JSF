@@ -1,16 +1,46 @@
 <!DOCTYPE html>
-<html xmlns:h="http://java.sun.com/jsf/html">
+<html xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
 <head>
 <meta charset="UTF-8"></meta>
 <title>Insert title here</title>
 </head>
 <body>
+	<h:graphicImage value="/images/wieiklogo.png"></h:graphicImage>
+
 	<h:form>
-		<h:outputText value="outputText"></h:outputText><br></br>
-		<h:outputText value="outputText"></h:outputText><br></br>
-		<h:selectOneRadio></h:selectOneRadio><br></br>
-		<h:selectManyMenu></h:selectManyMenu>
-		<h:graphicImage></h:graphicImage>
+		Name: <h:inputText value="#{user.firstName}"></h:inputText>
+		
+		<br></br>
+		
+		Surname: <h:inputText value="#{user.lastName}"></h:inputText>
+		
+		<br></br>
+
+		Sex: <h:selectOneMenu value="#{user.sex}">
+			<f:selectItem itemLabel="Female" itemValue="1"></f:selectItem>
+			<f:selectItem itemLabel="Male" itemValue="2"></f:selectItem>		
+		</h:selectOneMenu>
+		
+		<br></br>
+		
+		Languages: <h:selectManyMenu value="#{user.selectedLanguages}">
+			<f:selectItem itemValue="1" itemLabel="Polish" />
+            <f:selectItem itemValue="2" itemLabel="English" />
+            <f:selectItem itemValue="3" itemLabel="German" />
+		</h:selectManyMenu>
+		
+		<br></br>
+		
+		Education: <h:selectOneRadio value="#{user.education}">
+			<f:selectItem itemValue="1" itemLabel="Primary"></f:selectItem>
+			<f:selectItem itemValue="2" itemLabel="Secendary"></f:selectItem>
+			<f:selectItem itemValue="3" itemLabel="Higher"></f:selectItem>
+		</h:selectOneRadio>
+
+		<br></br>
+		
+		<h:commandButton value="Submit!" action="submitUser"></h:commandButton>
 	</h:form>
 </body>
 </html>
